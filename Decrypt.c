@@ -1,3 +1,7 @@
+/* Copyright (c) 2013 Sven Weidauer
+ * Code is under the MIT license, see the LICENSE file.
+ */
+
 #include <CoreFoundation/CoreFoundation.h>
 #include <CommonCrypto/CommonCrypto.h>
 #include <sys/stat.h>
