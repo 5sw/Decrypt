@@ -49,3 +49,28 @@ bool OpenFile( struct buffer *buf, const char *fn )
 	
 	return true;
 }
+
+void OpenBuffer( struct buffer *buf, void *data, size_t length )
+{
+  buf->start = buf->next = data;
+  buf->length = length;
+  buf->fd = -1;
+}
+
+void Write( struct buffer *buf, const void *data, size_t length )
+{
+  memcpy(buf->next, data, length);
+  buf->next += length;
+}
+
+void Write32( struct buffer *buf, uint32_t value )
+{
+  uint32_t write = CFSwapInt32HostToBig(value);
+  Write(buf, &write, sizeof write);
+}
+
+void Write16( struct buffer *buf, uint16_t value )
+{
+  uint16_t write = CFSwapInt16HostToBig(value);
+  Write(buf, &write, sizeof write);
+}
