@@ -6,7 +6,7 @@ Thanks to [hph][1] for reverse engineering the details of that config format.
 
 ## Compile:
 
-	clang Decrypt.c -o Decrypt
+	make
 
 ## Run:
 
