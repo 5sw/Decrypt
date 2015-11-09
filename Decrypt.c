@@ -46,7 +46,7 @@ int main( int argc, const char *argv[] )
 		return 1;
 	}
 	
-	char header_data[48];
+	char header_data[HeaderSize];
 	memcpy( header_data, buf.start, sizeof header_data );
 	memset( &header_data[8], 0, 8 );
 	
@@ -61,7 +61,7 @@ int main( int argc, const char *argv[] )
 	printf( "Password len: %d\n", header.password_len );
 	printf( "ETL: %s\n", header.etl );
 	
-	if (buf.length - header.payload_size != 48) {
+	if (buf.length - header.payload_size != HeaderSize) {
 		fprintf( stderr, "Error: Invalid file size\n" );
 		return 1;
 	}
